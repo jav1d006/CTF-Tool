@@ -363,7 +363,7 @@ if __name__ == "__main__":
     def main():
         while True:
             clear()
-            print("===== CTF Interactive Tool =====
+            print("""
 
 
     ------------------------------------------- -------------------------------------------
@@ -376,7 +376,7 @@ if __name__ == "__main__":
 	        4-SQLmap					
 	           5-Hash Tools				
 	              6-Base64 Tools
-")
+""")
 
             if choice == "1":
                 nmap_advanced_menu()
