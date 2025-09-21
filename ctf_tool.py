@@ -105,7 +105,7 @@ def gobuster_menu():
                 print(f"{key}) {wl.split('/')[-1]}")
             wl_choice = input("Seçim: ")
 
-            wordlist = wordlists.get(wl_choice, "CTF-Tool/src/wordlist/common.txt")
+            wordlist = wordlists.get(wl_choice, "/Desktop/CTF-Tool/src/wordlist/common.txt")
 
             if secim == "1":
                 os.system(f"gobuster dir -u {url_or_domain} -w {wordlist} -t 50")
@@ -155,7 +155,7 @@ def hydra_menu():
             for key, wl in wordlists.items():
                 print(f"{key}) {wl.split('/')[-1]}")
             wl_choice = input("Seçim: ")
-            wordlist = wordlists.get(wl_choice, "CTF-Tool/src/wordlist/rockyou.txt")
+            wordlist = wordlists.get(wl_choice, "/Desktop/CTF-Tool/src/wordlist/rockyou.txt")
 
             if secim == "1":  # SSH
                 user = input("İstifadəçi adı: ")
