@@ -1,4 +1,4 @@
-# ctf-tool
+# CTF-Tool
 
 Nmap → şəbəkə / host skanları
 
