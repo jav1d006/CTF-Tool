@@ -14,7 +14,12 @@ Base64 Tools → encode/decode
 
 
 
-🔹 Ümumi faydası:
+
+
+
+
+
+ 🔹 Ümumi faydası:
 
 Bütün tool-lar bir skriptdə, interaktiv menyu ilə istifadəçiyə təqdim olunur.
 
