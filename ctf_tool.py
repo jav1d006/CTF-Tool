@@ -343,59 +343,65 @@ def base64_tools_menu():
 # ===============================
 # MAIN MENU
 # ===============================
-def show_banner():
-    banner = """
-      ██████╗ ██╗      ██████╗ ██╗██████╗ ██████╗██╗   ██╗
-     ██╔═══██╗██║     ██╔═══██╗██║██╔══██╗██╔══██╗╚██╗ ██╔╝
-     ██║   ██║██║     ██║   ██║██║██████╔╝██████╔╝ ╚████╔╝ 
-     ██║   ██║██║     ██║   ██║██║██╔═══╝ ██╔═══╝   ╚██╔╝  
-     ╚██████╔╝███████╗╚██████╔╝██║██║     ██║        ██║   
-      ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝╚═╝     ╚═╝        ╚═╝   
+from colorama import init, Fore, Style
 
-                 J A V I D C Y B E R
-           Interactive CTF & Pentest Tool
-    """
-    print(banner)
-    time.sleep(1)
+init(autoreset=True)
+
+def clear():
+    os.system("clear" if os.name == "posix" else "cls")
+
+def show_banner():
+    banner_lines = [
+        "████████████████████████████████████████",
+        "█                                      █",
+        "█       J A V I D   C Y B E R          █",
+        "█   Interactive CTF & Pentest Tool     █",
+        "█                                      █",
+        "████████████████████████████████████████",
+    ]
+    for line in banner_lines:
+        print(Fore.CYAN + Style.BRIGHT + line)
+        time.sleep(0.1)  # Animasiya effekti
+    print("\n")
+
+def main():
+    while True:
+        clear()
+        show_banner()
+        
+        print(Fore.YELLOW + "┌───────────── TOOLS ──────────────┐")
+        print(Fore.GREEN + "│ 1) Nmap                          │")
+        print(Fore.GREEN + "│ 2) Gobuster                      │")
+        print(Fore.GREEN + "│ 3) Hydra                         │")
+        print(Fore.GREEN + "│ 4) SQLmap                        │")
+        print(Fore.GREEN + "│ 5) Hash Tools                     │")
+        print(Fore.GREEN + "│ 6) Base64 Tools                   │")
+        print(Fore.RED   + "│ 0) Çıxış                         │")
+        print(Fore.YELLOW + "└──────────────────────────────────┘\n")
+
+        choice = input(Fore.CYAN + "Seçiminizi daxil edin: ")
+
+        if choice == "1":
+            nmap_advanced_menu()
+        elif choice == "2":
+            gobuster_menu()
+        elif choice == "3":
+            hydra_menu()
+        elif choice == "4":
+            sqlmap_menu()
+        elif choice == "5":
+            hash_tools_menu()
+        elif choice == "6":
+            base64_tools_menu()
+        elif choice == "0":
+            print(Fore.RED + "Çıxış...")
+            break
+        else:
+            print(Fore.RED + "Yanlış seçim!")
+
+        input(Fore.MAGENTA + "\n[ENTER] bas davam etmək üçün...")
 
 if __name__ == "__main__":
-    show_banner()
-    def main():
-        while True:
-            clear()
-            print("""
-
-
-    ------------------------------------------- -------------------------------------------
-			TOOLS				  	BRUTE FORCE
-	------------------------------------------- -------------------------------------------
-	
- 1-Nmap				
-     2-Gobuster		
-	     3-Hydra					
-	        4-SQLmap					
-	           5-Hash Tools				
-	              6-Base64 Tools
-""")
-
-            if choice == "1":
-                nmap_advanced_menu()
-            elif choice == "2":
-                gobuster_menu()
-            elif choice == "3":
-                hydra_menu()
-            elif choice == "4":
-                sqlmap_menu()
-            elif choice == "5":
-                hash_tools_menu()
-            elif choice == "6":
-                base64_tools_menu()
-            elif choice == "0":
-                print("Çıxış...")
-                break
-            else:
-                print("Yanlış seçim!")
-
-            input("\n[ENTER] bas davam etmək üçün...")
-
     main()
+
+       
