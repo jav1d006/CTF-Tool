@@ -76,10 +76,16 @@ def nmap_advanced_menu():
 # ===============================
 def gobuster_menu():
     wordlists = {
-        "1": "/usr/share/wordlists/dirb/common.txt",
-        "2": "/usr/share/wordlists/dirb/big.txt",
-        "3": "/usr/share/wordlists/raft-medium-directories.txt",
-        "4": "/usr/share/wordlists/raft-large-directories.txt"
+        "1": "CTF-Tool/src/wordlist/common.txt",
+        "2": "CTF-Tool/src/wordlist/directory-list-1.0.txt",
+        "3": "CTF-Tool/src/wordlist/directory-list-2.3-small.txt",
+        "4": "CTF-Tool/src/wordlist/directory-list-2.3-medium.txt",
+        "5": "CTF-Tool/src/wordlist/directory-list-lowercase-2.3-small.txt",
+        "6": "CTF-Tool/src/wordlist/directory-list-lowercase-2.3-medium.txt",
+        "7": "CTF-Tool/src/wordlist/medium.txt",
+        "8": "CTF-Tool/src/wordlist/names.txt",
+        "9": "CTF-Tool/src/wordlist/password.txt",
+        "10": "CTF-Tool/src/wordlist/jav1d006"
     }
 
     while True:
@@ -95,13 +101,11 @@ def gobuster_menu():
         if secim in ["1", "2", "3"]:
             url_or_domain = input("Hədəf URL/Domen: ")
             print("\nWordlist şablonunu seçin:")
-            print("1) common.txt")
-            print("2) big.txt")
-            print("3) raft-medium-directories.txt")
-            print("4) raft-large-directories.txt")
+            for key, wl in wordlists.items():
+                print(f"{key}) {wl.split('/')[-1]}")
             wl_choice = input("Seçim: ")
 
-            wordlist = wordlists.get(wl_choice, "/usr/share/wordlists/dirb/common.txt")
+            wordlist = wordlists.get(wl_choice, "CTF-Tool/src/wordlist/common.txt")
 
             if secim == "1":
                 os.system(f"gobuster dir -u {url_or_domain} -w {wordlist} -t 50")
@@ -125,12 +129,12 @@ def gobuster_menu():
 # 3. Hydra
 # ===============================
 def hydra_menu():
-    # Hazır wordlist şablonları
     wordlists = {
-        "1": "/usr/share/wordlists/rockyou.txt",
-        "2": "/usr/share/wordlists/fasttrack.txt",
-        "3": "/usr/share/wordlists/common.txt",
-        "4": "/usr/share/wordlists/passwords.txt"
+        "1": "CTF-Tool/src/wordlist/rockyou.txt",
+        "2": "CTF-Tool/src/wordlist/fasttrack.txt",
+        "3": "CTF-Tool/src/wordlist/common.txt",
+        "4": "CTF-Tool/src/wordlist/passwords.txt",
+        "5": "CTF-Tool/src/wordlist/jav1d006"
     }
 
     while True:
@@ -147,14 +151,11 @@ def hydra_menu():
         if secim in ["1","2","3","4"]:
             host = input("Hədəf IP/Domen: ")
 
-            # Wordlist seçimi
             print("\nWordlist şablonunu seçin:")
-            print("1) rockyou.txt")
-            print("2) fasttrack.txt")
-            print("3) common.txt")
-            print("4) passwords.txt")
+            for key, wl in wordlists.items():
+                print(f"{key}) {wl.split('/')[-1]}")
             wl_choice = input("Seçim: ")
-            wordlist = wordlists.get(wl_choice, "/usr/share/wordlists/rockyou.txt")
+            wordlist = wordlists.get(wl_choice, "CTF-Tool/src/wordlist/rockyou.txt")
 
             if secim == "1":  # SSH
                 user = input("İstifadəçi adı: ")
@@ -174,7 +175,7 @@ def hydra_menu():
                 user = input("İstifadəçi adı: ")
                 os.system(f"hydra -l {user} -P {wordlist} {host} mysql")
 
-        elif secim == "5":  # Custom
+        elif secim == "5":
             cmd = input("Tam Hydra əmri daxil edin: ")
             os.system(f"hydra {cmd}")
 
@@ -189,12 +190,11 @@ def hydra_menu():
 # 4. SQLmap
 # ===============================
 def sqlmap_menu():
-    # Hazır wordlist şablonları (isteğe bağlı, bəzi form login testlərində)
     wordlists = {
-        "1": "/usr/share/wordlists/rockyou.txt",
-        "2": "/usr/share/wordlists/fasttrack.txt",
-        "3": "/usr/share/wordlists/common.txt",
-        "4": "/usr/share/wordlists/passwords.txt"
+        "1": "CTF-Tool/src/wordlist/rockyou.txt",
+        "2": "CTF-Tool/src/wordlist/fasttrack.txt",
+        "3": "CTF-Tool/src/wordlist/common.txt",
+        "4": "CTF-Tool/src/wordlist/passwords.txt"
     }
 
     while True:
@@ -223,12 +223,10 @@ def sqlmap_menu():
         elif secim == "4":
             url = input("Target URL: ")
             print("\nWordlist şablonunu seçin:")
-            print("1) rockyou.txt")
-            print("2) fasttrack.txt")
-            print("3) common.txt")
-            print("4) passwords.txt")
+            for key, wl in wordlists.items():
+                print(f"{key}) {wl.split('/')[-1]}")
             wl_choice = input("Seçim: ")
-            wordlist = wordlists.get(wl_choice, "/usr/share/wordlists/rockyou.txt")
+            wordlist = wordlists.get(wl_choice, "CTF-Tool/src/wordlist/rockyou.txt")
             os.system(f"sqlmap -u \"{url}\" --passwords -P {wordlist} --batch")
 
         elif secim == "5":
@@ -245,8 +243,6 @@ def sqlmap_menu():
 # ===============================
 # 5. Hash Tools
 # ===============================
-import hashlib
-
 def hash_tools_menu():
     while True:
         print("\n--- Hash Tools Menyu ---")
@@ -262,14 +258,13 @@ def hash_tools_menu():
         if secim in ["1","2","3","4"]:
             data = input("Hash-lanacaq mətn və ya parol: ").encode()
 
-            if secim == "1":  # MD5
+            if secim == "1":
                 result = hashlib.md5(data).hexdigest()
-            elif secim == "2":  # SHA1
+            elif secim == "2":
                 result = hashlib.sha1(data).hexdigest()
-            elif secim == "3":  # SHA256
+            elif secim == "3":
                 result = hashlib.sha256(data).hexdigest()
-            elif secim == "4":  # NTLM
-                import hashlib
+            elif secim == "4":
                 import binascii
                 result = hashlib.new('md4', data.decode('utf-8').encode('utf-16le')).hexdigest()
 
@@ -295,8 +290,6 @@ def hash_tools_menu():
 # ===============================
 # 6. Base64 Tools
 # ===============================
-import base64
-
 def base64_tools_menu():
     while True:
         print("\n--- Base64 Alətləri Menyu ---")
@@ -367,40 +360,37 @@ def show_banner():
 
 if __name__ == "__main__":
     show_banner()
+    def main():
+        while True:
+            clear()
+            print("===== CTF Interactive Tool =====")
+            print("1) Nmap")
+            print("2) Gobuster")
+            print("3) Hydra")
+            print("4) SQLmap")
+            print("5) Hash Tools")
+            print("6) Base64 Tools")
+            print("0) Çıxış")
+            choice = input("Seçim: ")
 
+            if choice == "1":
+                nmap_advanced_menu()
+            elif choice == "2":
+                gobuster_menu()
+            elif choice == "3":
+                hydra_menu()
+            elif choice == "4":
+                sqlmap_menu()
+            elif choice == "5":
+                hash_tools_menu()
+            elif choice == "6":
+                base64_tools_menu()
+            elif choice == "0":
+                print("Çıxış...")
+                break
+            else:
+                print("Yanlış seçim!")
 
-def main():
-    while True:
-        clear()
-        print("===== CTF Interactive Tool =====")
-        print("1) Nmap")
-        print("2) Gobuster")
-        print("3) Hydra")
-        print("4) SQLmap")
-        print("5) Hash Tools")
-        print("6) Base64 Tools")
-        print("0) Çıxış")
-        choice = input("Seçim: ")
+            input("\n[ENTER] bas davam etmək üçün...")
 
-        if choice == "1":
-            nmap_menu()
-        elif choice == "2":
-            gobuster_menu()
-        elif choice == "3":
-            hydra_menu()
-        elif choice == "4":
-            sqlmap_menu()
-        elif choice == "5":
-            hash_menu()
-        elif choice == "6":
-            b64_menu()
-        elif choice == "0":
-            print("Çıxış...")
-            break
-        else:
-            print("Yanlış seçim!")
-
-        input("\n[ENTER] bas davam etmək üçün...")
-
-if __name__ == "__main__":
     main()
