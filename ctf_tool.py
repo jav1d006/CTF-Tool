@@ -363,15 +363,20 @@ if __name__ == "__main__":
     def main():
         while True:
             clear()
-            print("===== CTF Interactive Tool =====")
-            print("1) Nmap")
-            print("2) Gobuster")
-            print("3) Hydra")
-            print("4) SQLmap")
-            print("5) Hash Tools")
-            print("6) Base64 Tools")
-            print("0) Çıxış")
-            choice = input("Seçim: ")
+            print("===== CTF Interactive Tool =====
+
+
+    ------------------------------------------- -------------------------------------------
+			TOOLS				  	BRUTE FORCE
+	------------------------------------------- -------------------------------------------
+	
+ 1-Nmap				
+     2-Gobuster		
+	     3-Hydra					
+	        4-SQLmap					
+	           5-Hash Tools				
+	              6-Base64 Tools
+")
 
             if choice == "1":
                 nmap_advanced_menu()
