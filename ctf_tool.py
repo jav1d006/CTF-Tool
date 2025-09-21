@@ -19,15 +19,15 @@ def clear():
 def nmap_advanced_menu():
     while True:
         print("\n--- Nmap Geniş Menyu ---")
-        print("1. Aktiv host / Şəbəkə aşkarlanması (-sn)")
-        print("2. Bütün portları skan et (-p-)")
-        print("3. Xidmət və versiya aşkarlanması (-sV)")
-        print("4. Default scriptlər ilə (-sC)")
-        print("5. Aqressiv skan (-A)")
-        print("6. Aqressiv + OS aşkarlanması + zəiflik scriptləri (-A -O -T4 --script=vuln)")
-        print("7. Versiya + scriptlər + 5000pps + bütün portlar (-sV -sC -T4 --min-rate 5000 -p-)")
-        print("8. Xüsusi Nmap əmri")
-        print("9. Nmap menyusundan çıx")
+        print("1-         Aktiv host / Şəbəkə aşkarlanması (-sn)")
+        print("2-         Bütün portları skan et (-p-)")
+        print("3-         Xidmət və versiya aşkarlanması (-sV)")
+        print("4-         Default scriptlər ilə (-sC)")
+        print("5-         Aqressiv skan (-A)")
+        print("6-         Aqressiv + OS aşkarlanması + zəiflik scriptləri (-A -O -T4 --script=vuln)")
+        print("7-         Versiya + scriptlər + 5000pps + bütün portlar (-sV -sC -T4 --min-rate 5000 -p-)")
+        print("8-         Xüsusi Nmap əmri")
+        print("9-         Nmap menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
@@ -90,11 +90,11 @@ def gobuster_menu():
 
     while True:
         print("\n--- Gobuster Menyu ---")
-        print("1. Directory / File Brute Force (dir)")
-        print("2. Virtual Host Brute Force (vhost)")
-        print("3. DNS Subdomain Brute Force (dns)")
-        print("4. Custom Gobuster əmri")
-        print("5. Gobuster menyusundan çıx")
+        print("1-         Directory / File Brute Force (dir)")
+        print("2-         Virtual Host Brute Force (vhost)")
+        print("3-         DNS Subdomain Brute Force (dns)")
+        print("4-         Custom Gobuster əmri")
+        print("5-         Gobuster menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
@@ -139,12 +139,12 @@ def hydra_menu():
 
     while True:
         print("\n--- Hydra Menyu ---")
-        print("1. SSH")
-        print("2. FTP")
-        print("3. HTTP-Form (web login)")
-        print("4. MySQL")
-        print("5. Custom Hydra əmri")
-        print("6. Hydra menyusundan çıx")
+        print("1-         SSH")
+        print("2-         FTP")
+        print("3-         HTTP-Form (web login)")
+        print("4-         MySQL")
+        print("5-         Custom Hydra əmri")
+        print("6-         Hydra menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
@@ -199,12 +199,12 @@ def sqlmap_menu():
 
     while True:
         print("\n--- SQLmap Menyu ---")
-        print("1. Basic URL Scan")
-        print("2. Crawl & Scan")
-        print("3. Database Dump")
-        print("4. Use Wordlist (login/password)")
-        print("5. Custom SQLmap command")
-        print("6. SQLmap menyusundan çıx")
+        print("1-         Basic URL Scan")
+        print("2-         Crawl & Scan")
+        print("3-         Database Dump")
+        print("4-         Use Wordlist (login/password)")
+        print("5-         Custom SQLmap command")
+        print("6-         SQLmap menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
@@ -246,12 +246,12 @@ def sqlmap_menu():
 def hash_tools_menu():
     while True:
         print("\n--- Hash Tools Menyu ---")
-        print("1. MD5")
-        print("2. SHA1")
-        print("3. SHA256")
-        print("4. NTLM")
-        print("5. Custom Hash")
-        print("6. Hash Tools menyusundan çıx")
+        print("1-         MD5")
+        print("2-         SHA1")
+        print("3-         SHA256")
+        print("4-         NTLM")
+        print("5-         Custom Hash")
+        print("6-         Hash Tools menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
@@ -293,11 +293,11 @@ def hash_tools_menu():
 def base64_tools_menu():
     while True:
         print("\n--- Base64 Alətləri Menyu ---")
-        print("1. Mətn Encode")
-        print("2. Mətn Decode")
-        print("3. Fayl Encode")
-        print("4. Fayl Decode")
-        print("5. Base64 menyusundan çıx")
+        print("1-         Mətn Encode")
+        print("2-         Mətn Decode")
+        print("3-         Fayl Encode")
+        print("4-         Fayl Decode")
+        print("5-         Base64 menyusundan çıx")
 
         secim = input("Seçiminizi daxil edin: ")
 
